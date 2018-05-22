@@ -2,4 +2,9 @@
 
 {% block title %}{{ title }}{% endblock %}
 
-{% block body %}{{ title }} : {{ amount }}{% endblock %}
+{% block body %}
+
+    {{ title }} : {{ amount }}
+
+    {{ dump() }}
+{% endblock %}

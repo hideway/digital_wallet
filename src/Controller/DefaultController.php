@@ -18,7 +18,7 @@ class DefaultController extends AbstractController
     /**
      * @Route("/coins")
      */
-    public function currencies()
+    public function indexcoins()
     {
 
     }
@@ -26,7 +26,7 @@ class DefaultController extends AbstractController
     /**
      * @Route("/coins/{slug}")
      */
-    public function bitcoin($slug)
+    public function showcoins($slug)
     {
         $amount = 15;
 
