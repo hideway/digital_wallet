@@ -2,18 +2,17 @@
 
 namespace App\Controller;
 
-
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DefaultController
+class DefaultController extends AbstractController
 {
     /**
      * @Route("/")
      */
     public function index()
     {
-        return new Response('<h1>HOMEPAGE</h1>');
+
     }
 
     /**
@@ -21,15 +20,20 @@ class DefaultController
      */
     public function currencies()
     {
-        return new Response('<h1>Coins</h1>');
+
     }
 
     /**
-     * @Route("/coins/{currencies}")
+     * @Route("/coins/{slug}")
      */
-    public function bitcoin($coins)
+    public function bitcoin($slug)
     {
-        return new Response(sprintf('<h1>%s</h1>', $coins));
+        $amount = 15;
+
+        return $this->render('coins/show.html.twig', [
+            'title' => ucwords(str_replace('-', ' ', $slug)),
+            'amount' => $amount,
+        ]);
     }
 
 }
